@@ -1,0 +1,23 @@
+1. Train & Export the Model
+Creates a dummy mini-LLM and exports the TF SavedModel.
+
+Bash
+python src/train.py
+2. Convert & Quantize to TFLite
+Converts the SavedModel to an INT8 quantized TFLite model.
+
+Bash
+python src/convert.py
+3. Run Edge Inference
+Simulates on-device inference using the optimized TFLite model.
+
+Bash
+python src/infer.py
+
+---
+
+### 2. `requirements.txt`
+```text
+tensorflow>=2.14.0
+numpy>=1.24.0
+tflite-runtime>=2.14.0 ; sys_platform == "linux" and platform_machine == "armv7l"
